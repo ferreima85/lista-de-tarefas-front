@@ -1,0 +1,32 @@
+<h2>Minha Lista de Atividades</h2>
+
+<div class="alert alert-success"  role="alert" *ngIf='sucesso'>{{message}}</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Data</th>
+                <th>Feito?</th>
+                <th>Ações</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let lista of listaAtividades">
+                <td>{{lista.descricao}}</td>
+                <td>{{lista.data | date}}</td>
+                <td>{{lista.feito}}</td>
+                <td>
+                    <button (click)="atualizarAtividade(lista.id)" class="btn btn-outline-primary">Atualizar</button> 
+                    <button (click)="apagarAtividade(lista.id)" class="btn btn-outline-danger">Apagar</button> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+        <div class="row">
+            <button (click)="adicionarAtividade(-1)" class="btn btn-outline-success" >Adicionar</button>
+        </div>
+</div>

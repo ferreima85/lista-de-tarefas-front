@@ -1,0 +1,21 @@
+<h2>Atividade</h2>
+
+<div class="container">
+    <div class="alert alert-warning" *ngIf="atividadeForm.dirty && atividadeForm.invalid">Preenchimento inválido</div>
+    <form (ngSubmit)="!atividadeForm.invalid && updateAtividade()" #atividadeForm="ngForm">
+        <fieldset class="form-group">
+            <label>Descrição</label>
+            <input type="text" [(ngModel)]="atividade.descricao" class="form-control" name="descricao" required="required">
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label>Data</label>
+            <input type="date" [ngModel]="atividade.data | date:'yyyy-MM-dd'" 
+                               (ngModelChange)="atividade.data = $event" class="form-control" name="data" required="required">
+        </fieldset>
+
+        <button type="submit" class="btn btn-outline-primary">Salvar</button> 
+    </form>
+</div>
+
+
